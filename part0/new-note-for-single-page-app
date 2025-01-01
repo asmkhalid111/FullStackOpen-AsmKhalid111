@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: The browser executes the callback function that renders the notes
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of browser: {"content": "Single page app does not reload the whole page", "date": "2019-05-25T15:15:59.905Z"}
+    server-->>browser: {"message": "note created"}
+    deactivate server
+    Note right of browser: The browser executes the callback function that renders the notes
